@@ -1,0 +1,84 @@
+@use 'variables';
+@use 'fonts';
+
+.Start {
+    background-color: variables.$paleBlue3;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    h2 {
+        color: white;
+    }
+    .menu {
+        background-color: variables.$white;
+        width: 40%;
+        border-radius: 15px;
+        padding: 2% 2%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 5%;
+        p {
+            color: variables.$paleBlue1;
+        }
+        .radios {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input {
+                    opacity: 0;
+                    position: fixed;
+                    width: 0;
+                    height: 0;
+                    &:checked + label {
+                        background-color: variables.$paleBlue2;
+                    }
+            }
+            label {
+                @include fonts.fontFamily();
+                font-size: 20px;
+                display: inline-block;
+                background-color: variables.$grayBlue;
+                border-radius: 20px;
+                color: white;
+                text-align: center;
+                transition: background-color 0.5s;
+                &:hover {
+                    background-color: variables.$paleBlue1;
+                }
+            }
+        }
+        .theme, .gSize {
+            label {
+                width: 45%;
+                padding: 1.4% 0;
+            }
+        }
+        .players {
+            label {
+                width: 23%;
+                padding: 1.4% 0;
+            }
+        }
+        .startButton {
+            @include fonts.fontFamily();
+            font-size: 32px;
+            color: white;
+            border: none;
+            background-color: variables.$orange;
+            width: 100%;
+            padding: 1% 0;
+            border-radius: 30px;
+            margin-top: 5%;
+            border: 5px solid variables.$orange;
+            transition: color 0.5s, background-color 0.5s;
+            &:hover {
+                color: variables.$orange;
+                background-color: variables.$white;
+            }
+        }
+    }
+}

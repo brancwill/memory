@@ -1,0 +1,117 @@
+@use 'variables';
+@use 'fonts';
+
+.Game {
+    padding: 5%;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.topArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .restart, .newGame {
+        height: 30px;
+        width: 7vw;
+        @include fonts.fontFamily();
+        font-size: 14px;
+        border-radius: 5px;
+    }
+    .restart {
+        color: variables.$white;
+        background-color: variables.$orange;
+        border: 3px solid variables.$orange;
+        transition: color 0.5s, background-color 0.5s;
+        &:hover {
+            color: variables.$orange;
+            background-color: variables.$white;
+        }
+        
+    }
+    .newGame {
+        color: variables.$paleBlue2;
+        background-color: variables.$gray;
+        border: 3px solid variables.$gray;
+        margin-left: 5px;
+        transition: color 0.5s, background-color 0.5s, border-color 0.5s;
+        &:hover {
+            color: variables.$paleBlue2;
+            background-color: variables.$white;
+            border-color: variables.$paleBlue2;
+        }
+    }
+}
+.board {
+    margin-bottom: 7%;
+}
+.FxFboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    row-gap: 4%;
+    column-gap: 4%;
+    .unflippedPiece, .flippedPiece, .permaFlipped {
+        width: 6vw;
+        height: 6vw;
+        border-radius: 100px;
+    }
+}
+.SxSboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 3%;
+    column-gap: 3%;
+    margin-right: 4.5%;
+    .unflippedPiece, .flippedPiece, .permaFlipped {
+        width: 4vw;
+        height: 4vw;
+        border-radius: 100px;
+    }
+}
+
+.flippedPiece {
+    background-color: variables.$orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.unflippedPiece {
+    background-color: variables.$paleBlue3;
+    &:hover {
+        background-color: variables.$paleBlue2;
+    }
+}
+.permaFlipped {
+    background-color: variables.$grayBlue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.SoloData {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    .tracker {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5%;
+        background-color: variables.$grayBlue;
+        width: 17vw;
+        height: 50px;
+        border-radius: 5px;
+        p {
+            color: variables.$paleBlue1;
+        }
+        h3 {
+            color: variables.$paleBlue2;
+        }
+    }
+}

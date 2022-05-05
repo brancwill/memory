@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+
+@mixin fontFamily {
+    font-weight: 700; 
+    font-family: "Atkinson Hyperlegible";
+}
+
+h1 {
+    @include fontFamily();
+    font-size: 48px;
+}
+
+h2 {
+    @include fontFamily();
+    font-size: 32px;
+}
+
+h3 {
+    @include fontFamily();
+    font-size: 20px;
+}
+
+p {
+    @include fontFamily();
+    font-size: 18px;
+}
+.FxFGNumber {
+    @include fontFamily();
+    font-size: 56px;
+}
+.SxSGNumber {
+    @include fontFamily();
+    font-size: 44px;
+}

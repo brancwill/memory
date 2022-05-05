@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap");
+h1 {
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible";
+  font-size: 48px;
+}
+
+h2 {
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible";
+  font-size: 32px;
+}
+
+h3 {
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible";
+  font-size: 20px;
+}
+
+p {
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible";
+  font-size: 18px;
+}
+
+.FxFGNumber {
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible";
+  font-size: 56px;
+}
+
+.SxSGNumber {
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible";
+  font-size: 44px;
+}
+
+.Start {
+  background-color: #152938;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.Start h2 {
+  color: white;
+}
+.Start .menu {
+  background-color: #FCFCFC;
+  width: 40%;
+  border-radius: 15px;
+  padding: 2% 2%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+.Start .menu p {
+  color: #7191A5;
+}
+.Start .menu .radios {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Start .menu .radios input {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+  height: 0;
+}
+.Start .menu .radios input:checked + label {
+  background-color: #304859;
+}
+.Start .menu .radios label {
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible";
+  font-size: 20px;
+  display: inline-block;
+  background-color: #BCCED9;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  transition: background-color 0.5s;
+}
+.Start .menu .radios label:hover {
+  background-color: #7191A5;
+}
+.Start .menu .theme label, .Start .menu .gSize label {
+  width: 45%;
+  padding: 1.4% 0;
+}
+.Start .menu .players label {
+  width: 23%;
+  padding: 1.4% 0;
+}
+.Start .menu .startButton {
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible";
+  font-size: 32px;
+  color: white;
+  border: none;
+  background-color: #FDA214;
+  width: 100%;
+  padding: 1% 0;
+  border-radius: 30px;
+  margin-top: 5%;
+  border: 5px solid #FDA214;
+  transition: color 0.5s, background-color 0.5s;
+}
+.Start .menu .startButton:hover {
+  color: #FDA214;
+  background-color: #FCFCFC;
+}
+
+.Game {
+  padding: 5%;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.topArea .restart, .topArea .newGame {
+  height: 30px;
+  width: 7vw;
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible";
+  font-size: 14px;
+  border-radius: 5px;
+}
+.topArea .restart {
+  color: #FCFCFC;
+  background-color: #FDA214;
+  border: 3px solid #FDA214;
+  transition: color 0.5s, background-color 0.5s;
+}
+.topArea .restart:hover {
+  color: #FDA214;
+  background-color: #FCFCFC;
+}
+.topArea .newGame {
+  color: #304859;
+  background-color: #F2F2F2;
+  border: 3px solid #F2F2F2;
+  margin-left: 5px;
+  transition: color 0.5s, background-color 0.5s, border-color 0.5s;
+}
+.topArea .newGame:hover {
+  color: #304859;
+  background-color: #FCFCFC;
+  border-color: #304859;
+}
+
+.board {
+  margin-bottom: 7%;
+}
+
+.FxFboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  row-gap: 4%;
+  column-gap: 4%;
+}
+.FxFboard .unflippedPiece, .FxFboard .flippedPiece, .FxFboard .permaFlipped {
+  width: 6vw;
+  height: 6vw;
+  border-radius: 100px;
+}
+
+.SxSboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 3%;
+  column-gap: 3%;
+  margin-right: 4.5%;
+}
+.SxSboard .unflippedPiece, .SxSboard .flippedPiece, .SxSboard .permaFlipped {
+  width: 4vw;
+  height: 4vw;
+  border-radius: 100px;
+}
+
+.flippedPiece {
+  background-color: #FDA214;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.unflippedPiece {
+  background-color: #152938;
+}
+.unflippedPiece:hover {
+  background-color: #304859;
+}
+
+.permaFlipped {
+  background-color: #BCCED9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.SoloData {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+.SoloData .tracker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  background-color: #BCCED9;
+  width: 17vw;
+  height: 50px;
+  border-radius: 5px;
+}
+.SoloData .tracker p {
+  color: #7191A5;
+}
+.SoloData .tracker h3 {
+  color: #304859;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */
