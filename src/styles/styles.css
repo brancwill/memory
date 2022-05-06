@@ -124,6 +124,36 @@ p {
   align-items: center;
 }
 
+.restart, .newGame {
+  font-weight: 700;
+  font-family: "Atkinson Hyperlegible";
+  border-radius: 25px;
+}
+
+.restart {
+  color: #FCFCFC;
+  background-color: #FDA214;
+  border: 3px solid #FDA214;
+  transition: color 0.5s, background-color 0.5s;
+}
+.restart:hover {
+  color: #FDA214;
+  background-color: #FCFCFC;
+}
+
+.newGame {
+  color: #304859;
+  background-color: #DFE7EC;
+  border: 3px solid #DFE7EC;
+  margin-left: 5px;
+  transition: color 0.5s, background-color 0.5s, border-color 0.5s;
+}
+.newGame:hover {
+  color: #304859;
+  background-color: #FCFCFC;
+  border-color: #304859;
+}
+
 .topArea {
   display: flex;
   justify-content: space-between;
@@ -132,33 +162,9 @@ p {
 }
 .topArea .restart, .topArea .newGame {
   height: 30px;
-  width: 7vw;
-  font-weight: 700;
-  font-family: "Atkinson Hyperlegible";
+  width: 8vw;
   font-size: 14px;
-  border-radius: 5px;
-}
-.topArea .restart {
-  color: #FCFCFC;
-  background-color: #FDA214;
-  border: 3px solid #FDA214;
-  transition: color 0.5s, background-color 0.5s;
-}
-.topArea .restart:hover {
-  color: #FDA214;
-  background-color: #FCFCFC;
-}
-.topArea .newGame {
-  color: #304859;
-  background-color: #F2F2F2;
-  border: 3px solid #F2F2F2;
-  margin-left: 5px;
-  transition: color 0.5s, background-color 0.5s, border-color 0.5s;
-}
-.topArea .newGame:hover {
-  color: #304859;
-  background-color: #FCFCFC;
-  border-color: #304859;
+  min-width: 90px;
 }
 
 .board {
@@ -236,6 +242,57 @@ p {
 }
 .SoloData .tracker h3 {
   color: #304859;
+}
+
+.WinScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+  text-align: center;
+}
+.WinScreen p {
+  color: #7191A5;
+}
+.WinScreen h1 {
+  color: #152938;
+  margin-bottom: 0;
+}
+.WinScreen h2 {
+  color: #304859;
+}
+.WinScreen .winTitle {
+  margin-bottom: 5%;
+}
+.WinScreen .stats {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #DFE7EC;
+  margin-bottom: 5%;
+  padding: 0 5%;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.WinScreen .winButtons {
+  width: 100%;
+  margin: 0;
+  margin-top: 3%;
+}
+.WinScreen .winButtons .restart, .WinScreen .winButtons .newGame {
+  width: 45%;
+  height: 60px;
+  font-size: 18px;
+  white-space: nowrap;
+}
+.WinScreen .winButtons .newGame {
+  background-color: #DFE7EC;
+  width: 47% !important;
 }
 
 body {
