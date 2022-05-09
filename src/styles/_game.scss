@@ -7,6 +7,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    img {
+        width: 60%;
+        height: auto;
+        filter: brightness(0) invert(1);
+    }
 }
 .restart, .newGame {
     @include fonts.fontFamily();
@@ -166,5 +171,51 @@
             background-color: variables.$lightBlue;
             width: 47% !important;
         }
+    }
+}
+.MultiplayerData {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2%;
+    align-items: center;
+    #currentPlayer {
+        background-color: variables.$orange;
+        p, h2 {
+            color: white;
+        }
+    }
+    .playerScore {
+        width: 20%;
+        max-height: 60px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: variables.$lightBlue;
+        border-radius: 5px;
+        padding: 0 2%;
+        box-sizing: border-box;
+        p {
+            color: variables.$paleBlue1;
+        }
+        h2 {
+            color: variables.$paleBlue3;
+        }
+    }
+    .currentTurn {
+        position: absolute;
+        color: variables.$paleBlue3 !important;
+        margin-top: 10%;
+        margin-left: 1.5%;
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+}
+.winner {
+    background-color: variables.$paleBlue3 !important;
+    p, h2 {
+        color: white !important;
     }
 }

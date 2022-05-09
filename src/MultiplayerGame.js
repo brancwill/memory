@@ -1,23 +1,25 @@
 import React, {useState, useRef, useEffect} from 'react';
-import iconBoardCreation from './iconBoardCreation';
 import boardCreation from './boardCreation';
+import iconBoardCreation from './iconBoardCreation';
 import Piece from './Piece';
-import { Link } from 'react-router-dom';
-import SoloData from './SoloData';
-import Modal from 'react-modal/lib/components/Modal';
-import WinScreen from './WinScreen';
 import IconPiece from './IconPiece';
+import { Link } from 'react-router-dom';
+import Modal from 'react-modal/lib/components/Modal';
+import MultiplayerWinScreen from './MultiplayerWinScreen';
+import MultiplayerData from './MultiplayerData';
 
-const Game = (props) => {
+const MultiplayerGame = (props) => {
     const numArray = boardCreation(props.numPieces)
     const iconArray = iconBoardCreation(props.numPieces)
     const [clickCount, setClickCount] = useState(0)
     const [previousPiece, setPreviousPiece] = useState(0)
-    const [moves, setMoves] = useState(0)
-    const [time, setTime] = useState('Starting...')
-    const [finalTime, setFinalTime] = useState('')
     const [pieceCount, setPieceCount] = useState(0)
     const [isOpen, setIsOpen] = useState(false)
+    const [currentPlayer, setCurrentPlayer] = useState(0)
+    const [playerScore, setPlayerScore] = useState([0, 0, 0, 0])
+    const [winners, setWinners] = useState([])
+    const [finalScores, setFinalScores] = useState([])
+    const [highestScore, setHighestScore] = useState(0)
     const pieceRef = useRef([])
 
     Modal.setAppElement('#root');
@@ -37,35 +39,54 @@ const Game = (props) => {
             }
     }
 
-    let seconds = 0
-    let minutes = 0
+    const updateScore = () => {
+        let newScore = playerScore
+        newScore[currentPlayer] += 1
+        setPlayerScore(newScore)
+    }
+
+    const findWinners = () => {
+        for (let i = 0; i < props.playerCount; i++) {
+            if (playerScore[i] === highestScore) {
+                setWinners(prevWinners => [...prevWinners, i])
+            }
+        }
+    }
+
+    const tallyScores = () => {
+        const scores = []
+        const winnersArr = []
+
+        const compare = (a, b) => {
+            if (a.score > b.score) return 1
+            if (a.score < b.score) return -1
+            return 0
+        }
+
+        for (let i = 0; i < props.playerCount; i++) {
+            scores.push({
+                score: playerScore[i],
+                player: i + 1
+            })
+            if (playerScore[i] === highestScore) {
+                winnersArr.push(i)
+            }
+        }
+        scores.sort(compare)
+        scores.reverse()
+        setFinalScores(scores)
+        setWinners(winnersArr)
+    }
 
     const triggerWinScreen = () => {
         if (pieceCount === props.numPieces - 2) {
-            setFinalTime(time)
-            console.log('There!')
+            setHighestScore(Math.max(...playerScore))
             setIsOpen(true)
         }
         else {
-            console.log(`Not there yet. Piece Count: ${pieceCount}`)
             return
         }
     }
-
-    const timer = () => {
-        if (seconds <= 58) {
-            seconds++
-        } else if (seconds >= 59) {
-            seconds = 0
-            minutes++
-        }
-        setTime(`${minutes}:${seconds.toString().padStart(2, 0)}`)
-    }
-        useEffect(() => {
-            setInterval(() => {
-                timer()
-            }, 1000)
-        }, [])
 
     const revert = (key) => {
         pieceRef.current[previousPiece].setState({
@@ -97,13 +118,17 @@ const Game = (props) => {
                 pieceRef.current[key].setState({
                     permaFlipped: true
                 })
-                setMoves(moves + 1)
+                updateScore()
                 setPieceCount(pieceCount + 2)
                 revert(key)
                 triggerWinScreen()
             } else {
-                setMoves(moves + 1)
                 setTimeout(() => {
+                    if ((currentPlayer + 1) < props.playerCount) {
+                        setCurrentPlayer(currentPlayer + 1)
+                    } else {
+                        setCurrentPlayer(0)
+                    }
                     revert(key)
                 }, "1000")
             }
@@ -111,6 +136,10 @@ const Game = (props) => {
             return
         }
     }
+
+    useEffect(() => {
+        tallyScores()
+    }, [highestScore])
 
     return ( 
         <div className="Game">
@@ -122,7 +151,7 @@ const Game = (props) => {
                 </div>
             </div>
             <Modal isOpen={isOpen} style={customStyles}>
-                <WinScreen moves={moves} time={finalTime} />
+                <MultiplayerWinScreen highestScore={highestScore} winners={winners} scores={finalScores}/>
             </Modal>
             {props.numbers ? 
                 <div id="board" className={`board ${props.gSize}board`}>
@@ -137,9 +166,9 @@ const Game = (props) => {
                     })}
                 </div>
             }
-            <SoloData moves={moves} time={time} />
+            <MultiplayerData currentPlayer={currentPlayer} playerCount={props.playerCount} playerScore={playerScore} />
         </div>
     );
 };
 
-export default Game;
+export default MultiplayerGame;

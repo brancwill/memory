@@ -123,6 +123,11 @@ p {
   flex-direction: column;
   align-items: center;
 }
+.Game img {
+  width: 60%;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
 
 .restart, .newGame {
   font-weight: 700;
@@ -293,6 +298,54 @@ p {
 .WinScreen .winButtons .newGame {
   background-color: #DFE7EC;
   width: 47% !important;
+}
+
+.MultiplayerData {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2%;
+  align-items: center;
+}
+.MultiplayerData #currentPlayer {
+  background-color: #FDA214;
+}
+.MultiplayerData #currentPlayer p, .MultiplayerData #currentPlayer h2 {
+  color: white;
+}
+.MultiplayerData .playerScore {
+  width: 20%;
+  max-height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #DFE7EC;
+  border-radius: 5px;
+  padding: 0 2%;
+  box-sizing: border-box;
+}
+.MultiplayerData .playerScore p {
+  color: #7191A5;
+}
+.MultiplayerData .playerScore h2 {
+  color: #152938;
+}
+.MultiplayerData .currentTurn {
+  position: absolute;
+  color: #152938 !important;
+  margin-top: 10%;
+  margin-left: 1.5%;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.winner {
+  background-color: #152938 !important;
+}
+.winner p, .winner h2 {
+  color: white !important;
 }
 
 body {

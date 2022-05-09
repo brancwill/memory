@@ -1,4 +1,6 @@
-export default function boardCreation(numPieces) {
+import iconArray from "./iconArray"
+
+export default function iconBoardCreation(numPieces) {
     //Declare variables
     const firstArray = []
     const randomArray = []
@@ -6,15 +8,15 @@ export default function boardCreation(numPieces) {
     //Make an array with number of pieces needed
     switch (numPieces) {
         case 16:
-            for(let i = 1; i <= 8; i++) {
-                firstArray.push(i)
-                firstArray.push(i)
+            for(let i = 0; i <= 7; i++) {
+                firstArray.push(iconArray[i])
+                firstArray.push(iconArray[i])
             }
             break
         case 36:
-            for(let i = 1; i <= 18; i++) {
-                firstArray.push(i)
-                firstArray.push(i)
+            for(let i = 0; i <= 17; i++) {
+                firstArray.push(iconArray[i])
+                firstArray.push(iconArray[i])
             }
             break
         default:

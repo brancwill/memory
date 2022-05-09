@@ -18,10 +18,6 @@ const Start = () => {
         setGSize(e.target.value)
     }
 
-    const handleClick = () => {
-        console.log(url)
-    }
-
     return (
         <div className="Start">
             <h2>memory</h2>
