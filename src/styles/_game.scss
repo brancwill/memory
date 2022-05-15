@@ -2,11 +2,20 @@
 @use 'fonts';
 
 .Game {
-    padding: 5%;
-    padding-top: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    a {
+        text-decoration: none;
+        &:visited {
+            color: inherit;
+        }
+    }
     img {
         width: 60%;
         height: auto;
@@ -20,24 +29,22 @@
 .restart {
     color: variables.$white;
     background-color: variables.$orange;
-    border: 3px solid variables.$orange;
     transition: color 0.5s, background-color 0.5s;
+    border: none;
     &:hover {
-        color: variables.$orange;
-        background-color: variables.$white;
+        background-color: variables.$lightOrange;
     }
     
 }
 .newGame {
     color: variables.$paleBlue2;
     background-color: variables.$lightBlue;
-    border: 3px solid variables.$lightBlue;
+    border: none;
     margin-left: 5px;
     transition: color 0.5s, background-color 0.5s, border-color 0.5s;
     &:hover {
-        color: variables.$paleBlue2;
-        background-color: variables.$white;
-        border-color: variables.$paleBlue2;
+        color: variables.$white;
+        background-color: variables.$paleBlue1;
     }
 }
 .topArea {
@@ -45,26 +52,99 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    @media screen and (max-width: 821px) and (max-device-width: 900px) {
+        margin-bottom: 12%;
+    }
+    @media screen and (max-width: 450px) {
+        margin-bottom: 20%;
+    }
+    @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+        margin-bottom: 0;
+    }
+    h2 {
+        font-size: 42px;
+        @media screen and (max-width: 450px) {
+            font-size: 28px;
+        }
+    }
     .restart, .newGame {
         height: 30px;
         width: 8vw;
         font-size: 14px;
         min-width: 90px;
+        @media screen and (max-width: 821px) and (max-device-width: 900px) {
+            height: 60px;
+            font-size: 24px;
+            width: 18vw;
+        }
+        @media screen and (orientation: landscape) and (min-device-width: 1000px) and (min-device-height: 800px) {
+            font-size: 20px;
+            width: 12vw;
+            height: 40px;
+        }
+        @media screen and (max-width: 450px) {
+            font-size: 14px;
+            height: 40px;
+        }
     }
 }
 .board {
-    margin-bottom: 7%;
+    margin: 0 auto 6%;
+    width: 30vw;
+    min-width: 350px;
+    height: auto;
+    .unflippedPiece, .flippedPiece, .permaFlipped {
+        cursor: pointer;
+    }
+    @media screen and (max-width: 821px) and (max-device-width: 900px) {
+        width: 85vw;
+        margin-bottom: 14%;
+    }
+    @media screen and (orientation: landscape) and (min-device-height: 800px) and (min-device-width: 1000px) {
+        width: 50vw;
+        margin-bottom: 9%;
+    }
+    @media screen and (max-width: 450px) {
+        margin-bottom: 20%;
+    }
+    @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+        width: 20vw;
+        min-width: 250px;
+    }
 }
 .FxFboard {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     row-gap: 4%;
-    column-gap: 4%;
+    column-gap: 0;
     .unflippedPiece, .flippedPiece, .permaFlipped {
-        width: 6vw;
-        height: 6vw;
+        width: 6.2vw;
+        min-width: 75px;
+        height: 6.2vw;
+        min-height: 75px;
         border-radius: 100px;
+        place-self: center;
+        h1 {
+            @media screen and (max-width: 821px) and (max-device-width: 900px) {
+                font-size: 92px;
+            }
+            @media screen and (max-width: 450px) {
+                font-size: 48px;
+            }
+        }
+        @media screen and (max-width: 821px) and (max-device-width: 900px) {
+            width: 18vw;
+            height: 18vw;
+        }
+        @media screen and (orientation: landscape) and (min-device-height: 800px) and (min-device-width: 1000px) {
+            min-width: 120px;
+            min-height: 120px;
+        }
+        @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+            min-width: 50px;
+            min-height: 50px;
+        }
     }
 }
 .SxSboard {
@@ -90,8 +170,9 @@
 }
 .unflippedPiece {
     background-color: variables.$paleBlue3;
+    transition: background-color 0.5s;
     &:hover {
-        background-color: variables.$paleBlue2;
+        background-color: variables.$paleBlue1;
     }
 }
 .permaFlipped {
@@ -113,65 +194,136 @@
         padding: 0 5%;
         background-color: variables.$grayBlue;
         width: 17vw;
-        height: 50px;
+        height: 8vh;
+        max-height: 50px;
         border-radius: 5px;
+        @media screen and (max-width: 821px) and (max-device-width: 900px) {
+            width: 35vw;
+            margin-top: 10%;
+            max-height: 90px;
+        }
+        @media screen and (orientation: landscape) and (min-device-width: 1000px) and (min-device-height: 800px) {
+            max-height: 120px;
+            width: 28vw;
+        }
+        @media screen and (max-width: 450px) {
+            width: 40vw;
+            max-height: 100px;
+        }
         p {
             color: variables.$paleBlue1;
+            @media screen and (max-width: 821px) and (max-device-width: 900px) {
+                font-size: 24px;
+            }
+            @media screen and (orientation: landscape) and (min-device-width: 1000px) and (min-device-height: 800px) {
+                font-size: 26px;
+            }
+            @media screen and (max-width: 450px) {
+                font-size: 16px;
+            }
         }
         h3 {
             color: variables.$paleBlue2;
+            @media screen and (max-width: 821px) and (max-device-width: 900px) {
+                font-size: 40px;
+            }
+            @media screen and (orientation: landscape) and (min-device-width: 1000px) and (min-device-height: 800px) {
+                font-size: 36px;
+            }
+            @media screen and (max-width: 450px) {
+                font-size: 20px;
+            }
         }
+    }
+}
+.modal {
+    background-color: variables.$white;
+    outline: none;
+    width: 40vw;
+    margin: 10% auto 0;
+    @media screen and (max-width: 821px) {
+        width: 80vw;
+        margin-top: 25%;
+    }
+    @media screen and (max-width: 490px) {
+        width: 90vw;
+        margin-top: 25%;
     }
 }
 .WinScreen {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
-    padding: 0 5%;
+    height: auto;
+    padding: 0 5% 4%;
     box-sizing: border-box;
     text-align: center;
     p {
         color: variables.$paleBlue1;
+        font-size: 16px;
+        @media screen and (max-width: 821px) {
+            font-size: 18px;
+        }
     }
     h1 {
         color: variables.$paleBlue3;
         margin-bottom: 0;
+        font-size: 38px;
+        @media screen and (max-width: 821px) {
+            font-size: 45px;
+        }
+        @media screen and (max-width: 490px) {
+            font-size: 35px;
+        }
     }
     h2 {
         color: variables.$paleBlue2;
+        @media screen and (max-width: 490px) {
+            font-size: 24px;
+        }
     }
     .winTitle {
-        margin-bottom: 5%;
+        margin-bottom: 2%;
     }
     .stats {
         width: 100%;
-        height: 65px;
+        height: 8vh;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: variables.$lightBlue;
-        margin-bottom: 5%;
+        margin-bottom: 2%;
         padding: 0 5%;
         box-sizing: border-box;
         border-radius: 5px;
+        @media screen and (max-width: 821px) {
+            height: 7vh;
+        }
     }
     .winButtons {
         width: 100%;
         margin: 0;
         margin-top: 3%;
         .restart, .newGame {
-            width: 45%;
-            height: 60px;
-            font-size: 18px;
+            width: 51%;
+            height: 40px;
+            font-size: 16px;
             white-space: nowrap;
+            @media screen and (max-width: 821px) {
+                font-size: 18px;
+                height: 50px;
+            }
+            @media screen and (max-width: 490px) {
+                font-size: 16px;
+            }
+            }
         }
         .newGame {
             background-color: variables.$lightBlue;
             width: 47% !important;
         }
-    }
 }
 .MultiplayerData {
     width: 100%;
@@ -188,7 +340,7 @@
     }
     .playerScore {
         width: 20%;
-        max-height: 60px;
+        max-height: 50px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -199,19 +351,30 @@
         box-sizing: border-box;
         p {
             color: variables.$paleBlue1;
+            font-size: 14px;
         }
         h2 {
             color: variables.$paleBlue3;
+            font-size: 26px;
         }
     }
     .currentTurn {
         position: absolute;
         color: variables.$paleBlue3 !important;
-        margin-top: 10%;
-        margin-left: 1.5%;
-        font-size: 15px;
-        letter-spacing: 2px;
+        margin-top: 8%;
+        margin-left: 1.4%;
+        font-size: 12px !important;
+        letter-spacing: 5px;
     }
+}
+.arrow {
+    position: absolute;
+    background-color: variables.$orange;
+    width: 30px;
+    height: 30px;
+    transform: rotate(45deg);
+    margin-bottom: 4%;
+    margin-left: 6%;
 }
 .winner {
     background-color: variables.$paleBlue3 !important;

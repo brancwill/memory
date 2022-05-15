@@ -8,6 +8,7 @@ const MultiplayerData = (props) => {
                 return (
                     props.currentPlayer === index ?
                             <div key={index} id="currentPlayer" className='playerScore'>
+                                <div className="arrow"> </div>
                                 <p>Player {index + 1}</p>
                                 <h2>{props.playerScore[index]}</h2>
                                 <p className="currentTurn">CURRENT TURN</p>

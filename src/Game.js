@@ -27,13 +27,11 @@ const Game = (props) => {
               backgroundColor: 'rgba(0, 0, 0, 0.6)'
             },
             content: {
-                width: '50vw',
-                height: '55vh',
+                width: '40vw',
+                height: 'auto',
                 borderRadius: '20px',
-                top: '20%',
-                left: '23%',
-                right: 'auto',
-                bottom: 'auto'
+                margin: 'auto',
+                overflow: 'hidden'
             }
     }
 
@@ -43,11 +41,9 @@ const Game = (props) => {
     const triggerWinScreen = () => {
         if (pieceCount === props.numPieces - 2) {
             setFinalTime(time)
-            console.log('There!')
             setIsOpen(true)
         }
         else {
-            console.log(`Not there yet. Piece Count: ${pieceCount}`)
             return
         }
     }
@@ -115,13 +111,13 @@ const Game = (props) => {
     return ( 
         <div className="Game">
             <div className="topArea">
-                <h2>memory</h2>
+                <Link to="../"><h2>memory</h2></Link>
                 <div>
                     <button className="restart" onClick={() => window.location.reload()}>Restart</button>
                     <Link to="../"><button className="newGame">New Game</button></Link>
                 </div>
             </div>
-            <Modal isOpen={isOpen} style={customStyles}>
+            <Modal className="modal" isOpen={isOpen} style={customStyles}>
                 <WinScreen moves={moves} time={finalTime} />
             </Modal>
             {props.numbers ? 

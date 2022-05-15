@@ -16,12 +16,12 @@ const MultiplayerWinScreen = (props) => {
                 return player.score === props.highestScore ? 
                     <div key={index} className="stats winner">
                         <p>Player {player.player} (Winner!)</p>
-                        <h2>{player.score}</h2>
+                        <h2>{player.score} Pairs</h2>
                     </div>
                 :
                     <div key={index} className="stats">
                         <p>Player {player.player}</p>
-                        <h2>{player.score}</h2>
+                        <h2>{player.score} Pairs</h2>
                     </div>
             })}
             <div className="winButtons">

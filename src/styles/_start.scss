@@ -4,25 +4,50 @@
 .Start {
     background-color: variables.$paleBlue3;
     height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     h2 {
         color: white;
+        margin: 5% 0 0 0;
+        @media screen and (orientation: landscape) and (max-device-width: 900px) {
+            margin-bottom: 2%;
+        }
     }
     .menu {
         background-color: variables.$white;
         width: 40%;
         border-radius: 15px;
-        padding: 2% 2%;
+        padding: 2% 4%;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-bottom: 5%;
+        margin: 5% 0;
+        @media screen and (max-width: 821px) {
+            width: 70%;
+        }
+        @media screen and (max-width: 821px) and (min-height: 1000px) {
+            width: 90%;
+            height: 50vh;
+            padding-bottom: 7%;
+        }
+        @media screen and (orientation: landscape) and (max-device-width: 900px) {
+            width: 50%;
+            height: 70vh;
+            margin: 0;
+        }
+        @media screen and (max-width: 450px) {
+            width: 85%;
+        }
         p {
             color: variables.$paleBlue1;
+            @media screen and (orientation: landscape) and (max-device-width: 900px) {
+                font-size: 14px;
+                margin: 1% 0 2% 0;
+            }
         }
         .radios {
             display: flex;
@@ -49,18 +74,39 @@
                 &:hover {
                     background-color: variables.$paleBlue1;
                 }
+                @media screen and (max-width: 821px) and (max-device-width: 900px) {
+                    font-size: 26px;
+                }
+                @media screen and (max-width: 450px) {
+                    font-size: 20px;
+                }
+                @media screen and (orientation: landscape) and (max-device-width: 900px) {
+                    font-size: 16px;
+                }
             }
         }
         .theme, .gSize {
             label {
                 width: 45%;
                 padding: 1.4% 0;
+                @media screen and (max-width: 821px) and (max-device-width: 900px) {
+                    padding: 2% 0;
+                }
+                @media screen and (orientation: landscape) and (max-device-width: 900px) {
+                    padding: 1% 0;
+                }
             }
         }
         .players {
             label {
                 width: 23%;
                 padding: 1.4% 0;
+                @media screen and (max-width: 821px) and (max-device-width: 900px) {
+                    padding: 2% 0;
+                }
+                @media screen and (orientation: landscape) and (max-device-width: 900px) {
+                    padding: 1% 0;
+                }
             }
         }
         .startButton {
@@ -73,11 +119,19 @@
             padding: 1% 0;
             border-radius: 30px;
             margin-top: 5%;
-            border: 5px solid variables.$orange;
-            transition: color 0.5s, background-color 0.5s;
+            border: none;
+            transition: background-color 0.5s;
             &:hover {
-                color: variables.$orange;
-                background-color: variables.$white;
+                background-color: variables.$lightOrange;
+            }
+            @media screen and (max-width: 821px) and (max-device-width: 900px) {
+                font-size: 42px;
+            }
+            @media screen and (orientation: landscape) and (max-device-width: 900px) {
+                font-size: 32px;
+            }
+            @media screen and (max-width: 450px) {
+                font-size: 32px;
             }
         }
     }

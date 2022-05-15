@@ -39,27 +39,64 @@ p {
 .Start {
   background-color: #152938;
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 .Start h2 {
   color: white;
+  margin: 5% 0 0 0;
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  .Start h2 {
+    margin-bottom: 2%;
+  }
 }
 .Start .menu {
   background-color: #FCFCFC;
   width: 40%;
   border-radius: 15px;
-  padding: 2% 2%;
+  padding: 2% 4%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 5%;
+  margin: 5% 0;
+}
+@media screen and (max-width: 821px) {
+  .Start .menu {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 821px) and (min-height: 1000px) {
+  .Start .menu {
+    width: 90%;
+    height: 50vh;
+    padding-bottom: 7%;
+  }
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  .Start .menu {
+    width: 50%;
+    height: 70vh;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .Start .menu {
+    width: 85%;
+  }
 }
 .Start .menu p {
   color: #7191A5;
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  .Start .menu p {
+    font-size: 14px;
+    margin: 1% 0 2% 0;
+  }
 }
 .Start .menu .radios {
   display: flex;
@@ -89,13 +126,48 @@ p {
 .Start .menu .radios label:hover {
   background-color: #7191A5;
 }
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .Start .menu .radios label {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .Start .menu .radios label {
+    font-size: 20px;
+  }
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  .Start .menu .radios label {
+    font-size: 16px;
+  }
+}
 .Start .menu .theme label, .Start .menu .gSize label {
   width: 45%;
   padding: 1.4% 0;
 }
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .Start .menu .theme label, .Start .menu .gSize label {
+    padding: 2% 0;
+  }
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  .Start .menu .theme label, .Start .menu .gSize label {
+    padding: 1% 0;
+  }
+}
 .Start .menu .players label {
   width: 23%;
   padding: 1.4% 0;
+}
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .Start .menu .players label {
+    padding: 2% 0;
+  }
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  .Start .menu .players label {
+    padding: 1% 0;
+  }
 }
 .Start .menu .startButton {
   font-weight: 700;
@@ -108,20 +180,43 @@ p {
   padding: 1% 0;
   border-radius: 30px;
   margin-top: 5%;
-  border: 5px solid #FDA214;
-  transition: color 0.5s, background-color 0.5s;
+  border: none;
+  transition: background-color 0.5s;
 }
 .Start .menu .startButton:hover {
-  color: #FDA214;
-  background-color: #FCFCFC;
+  background-color: #FFB84A;
+}
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .Start .menu .startButton {
+    font-size: 42px;
+  }
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  .Start .menu .startButton {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .Start .menu .startButton {
+    font-size: 32px;
+  }
 }
 
 .Game {
-  padding: 5%;
-  padding-top: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+.Game a {
+  text-decoration: none;
+}
+.Game a:visited {
+  color: inherit;
 }
 .Game img {
   width: 60%;
@@ -138,25 +233,23 @@ p {
 .restart {
   color: #FCFCFC;
   background-color: #FDA214;
-  border: 3px solid #FDA214;
   transition: color 0.5s, background-color 0.5s;
+  border: none;
 }
 .restart:hover {
-  color: #FDA214;
-  background-color: #FCFCFC;
+  background-color: #FFB84A;
 }
 
 .newGame {
   color: #304859;
   background-color: #DFE7EC;
-  border: 3px solid #DFE7EC;
+  border: none;
   margin-left: 5px;
   transition: color 0.5s, background-color 0.5s, border-color 0.5s;
 }
 .newGame:hover {
-  color: #304859;
-  background-color: #FCFCFC;
-  border-color: #304859;
+  color: #FCFCFC;
+  background-color: #7191A5;
 }
 
 .topArea {
@@ -165,15 +258,87 @@ p {
   align-items: center;
   width: 100%;
 }
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .topArea {
+    margin-bottom: 12%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .topArea {
+    margin-bottom: 20%;
+  }
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+  .topArea {
+    margin-bottom: 0;
+  }
+}
+.topArea h2 {
+  font-size: 42px;
+}
+@media screen and (max-width: 450px) {
+  .topArea h2 {
+    font-size: 28px;
+  }
+}
 .topArea .restart, .topArea .newGame {
   height: 30px;
   width: 8vw;
   font-size: 14px;
   min-width: 90px;
 }
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .topArea .restart, .topArea .newGame {
+    height: 60px;
+    font-size: 24px;
+    width: 18vw;
+  }
+}
+@media screen and (orientation: landscape) and (min-device-width: 1000px) and (min-device-height: 800px) {
+  .topArea .restart, .topArea .newGame {
+    font-size: 20px;
+    width: 12vw;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .topArea .restart, .topArea .newGame {
+    font-size: 14px;
+    height: 40px;
+  }
+}
 
 .board {
-  margin-bottom: 7%;
+  margin: 0 auto 6%;
+  width: 30vw;
+  min-width: 350px;
+  height: auto;
+}
+.board .unflippedPiece, .board .flippedPiece, .board .permaFlipped {
+  cursor: pointer;
+}
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .board {
+    width: 85vw;
+    margin-bottom: 14%;
+  }
+}
+@media screen and (orientation: landscape) and (min-device-height: 800px) and (min-device-width: 1000px) {
+  .board {
+    width: 50vw;
+    margin-bottom: 9%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .board {
+    margin-bottom: 20%;
+  }
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+  .board {
+    width: 20vw;
+    min-width: 250px;
+  }
 }
 
 .FxFboard {
@@ -181,12 +346,43 @@ p {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   row-gap: 4%;
-  column-gap: 4%;
+  column-gap: 0;
 }
 .FxFboard .unflippedPiece, .FxFboard .flippedPiece, .FxFboard .permaFlipped {
-  width: 6vw;
-  height: 6vw;
+  width: 6.2vw;
+  min-width: 75px;
+  height: 6.2vw;
+  min-height: 75px;
   border-radius: 100px;
+  place-self: center;
+}
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .FxFboard .unflippedPiece h1, .FxFboard .flippedPiece h1, .FxFboard .permaFlipped h1 {
+    font-size: 92px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .FxFboard .unflippedPiece h1, .FxFboard .flippedPiece h1, .FxFboard .permaFlipped h1 {
+    font-size: 48px;
+  }
+}
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .FxFboard .unflippedPiece, .FxFboard .flippedPiece, .FxFboard .permaFlipped {
+    width: 18vw;
+    height: 18vw;
+  }
+}
+@media screen and (orientation: landscape) and (min-device-height: 800px) and (min-device-width: 1000px) {
+  .FxFboard .unflippedPiece, .FxFboard .flippedPiece, .FxFboard .permaFlipped {
+    min-width: 120px;
+    min-height: 120px;
+  }
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+  .FxFboard .unflippedPiece, .FxFboard .flippedPiece, .FxFboard .permaFlipped {
+    min-width: 50px;
+    min-height: 50px;
+  }
 }
 
 .SxSboard {
@@ -213,9 +409,10 @@ p {
 
 .unflippedPiece {
   background-color: #152938;
+  transition: background-color 0.5s;
 }
 .unflippedPiece:hover {
-  background-color: #304859;
+  background-color: #7191A5;
 }
 
 .permaFlipped {
@@ -239,50 +436,147 @@ p {
   padding: 0 5%;
   background-color: #BCCED9;
   width: 17vw;
-  height: 50px;
+  height: 8vh;
+  max-height: 50px;
   border-radius: 5px;
+}
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .SoloData .tracker {
+    width: 35vw;
+    margin-top: 10%;
+    max-height: 90px;
+  }
+}
+@media screen and (orientation: landscape) and (min-device-width: 1000px) and (min-device-height: 800px) {
+  .SoloData .tracker {
+    max-height: 120px;
+    width: 28vw;
+  }
+}
+@media screen and (max-width: 450px) {
+  .SoloData .tracker {
+    width: 40vw;
+    max-height: 100px;
+  }
 }
 .SoloData .tracker p {
   color: #7191A5;
 }
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .SoloData .tracker p {
+    font-size: 24px;
+  }
+}
+@media screen and (orientation: landscape) and (min-device-width: 1000px) and (min-device-height: 800px) {
+  .SoloData .tracker p {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .SoloData .tracker p {
+    font-size: 16px;
+  }
+}
 .SoloData .tracker h3 {
   color: #304859;
+}
+@media screen and (max-width: 821px) and (max-device-width: 900px) {
+  .SoloData .tracker h3 {
+    font-size: 40px;
+  }
+}
+@media screen and (orientation: landscape) and (min-device-width: 1000px) and (min-device-height: 800px) {
+  .SoloData .tracker h3 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .SoloData .tracker h3 {
+    font-size: 20px;
+  }
+}
+
+.modal {
+  background-color: #FCFCFC;
+  outline: none;
+  width: 40vw;
+  margin: 10% auto 0;
+}
+@media screen and (max-width: 821px) {
+  .modal {
+    width: 80vw;
+    margin-top: 25%;
+  }
+}
+@media screen and (max-width: 490px) {
+  .modal {
+    width: 90vw;
+    margin-top: 25%;
+  }
 }
 
 .WinScreen {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
-  padding: 0 5%;
+  height: auto;
+  padding: 0 5% 4%;
   box-sizing: border-box;
   text-align: center;
 }
 .WinScreen p {
   color: #7191A5;
+  font-size: 16px;
+}
+@media screen and (max-width: 821px) {
+  .WinScreen p {
+    font-size: 18px;
+  }
 }
 .WinScreen h1 {
   color: #152938;
   margin-bottom: 0;
+  font-size: 38px;
+}
+@media screen and (max-width: 821px) {
+  .WinScreen h1 {
+    font-size: 45px;
+  }
+}
+@media screen and (max-width: 490px) {
+  .WinScreen h1 {
+    font-size: 35px;
+  }
 }
 .WinScreen h2 {
   color: #304859;
 }
+@media screen and (max-width: 490px) {
+  .WinScreen h2 {
+    font-size: 24px;
+  }
+}
 .WinScreen .winTitle {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 .WinScreen .stats {
   width: 100%;
-  height: 65px;
+  height: 8vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #DFE7EC;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   padding: 0 5%;
   box-sizing: border-box;
   border-radius: 5px;
+}
+@media screen and (max-width: 821px) {
+  .WinScreen .stats {
+    height: 7vh;
+  }
 }
 .WinScreen .winButtons {
   width: 100%;
@@ -290,12 +584,23 @@ p {
   margin-top: 3%;
 }
 .WinScreen .winButtons .restart, .WinScreen .winButtons .newGame {
-  width: 45%;
-  height: 60px;
-  font-size: 18px;
+  width: 51%;
+  height: 40px;
+  font-size: 16px;
   white-space: nowrap;
 }
-.WinScreen .winButtons .newGame {
+@media screen and (max-width: 821px) {
+  .WinScreen .winButtons .restart, .WinScreen .winButtons .newGame {
+    font-size: 18px;
+    height: 50px;
+  }
+}
+@media screen and (max-width: 490px) {
+  .WinScreen .winButtons .restart, .WinScreen .winButtons .newGame {
+    font-size: 16px;
+  }
+}
+.WinScreen .newGame {
   background-color: #DFE7EC;
   width: 47% !important;
 }
@@ -316,7 +621,7 @@ p {
 }
 .MultiplayerData .playerScore {
   width: 20%;
-  max-height: 60px;
+  max-height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -328,17 +633,29 @@ p {
 }
 .MultiplayerData .playerScore p {
   color: #7191A5;
+  font-size: 14px;
 }
 .MultiplayerData .playerScore h2 {
   color: #152938;
+  font-size: 26px;
 }
 .MultiplayerData .currentTurn {
   position: absolute;
   color: #152938 !important;
-  margin-top: 10%;
-  margin-left: 1.5%;
-  font-size: 15px;
-  letter-spacing: 2px;
+  margin-top: 8%;
+  margin-left: 1.4%;
+  font-size: 12px !important;
+  letter-spacing: 5px;
+}
+
+.arrow {
+  position: absolute;
+  background-color: #FDA214;
+  width: 30px;
+  height: 30px;
+  transform: rotate(45deg);
+  margin-bottom: 4%;
+  margin-left: 6%;
 }
 
 .winner {

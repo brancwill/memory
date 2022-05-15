@@ -29,13 +29,9 @@ const MultiplayerGame = (props) => {
               backgroundColor: 'rgba(0, 0, 0, 0.6)'
             },
             content: {
-                width: '50vw',
-                height: '55vh',
+                height: 'auto',
                 borderRadius: '20px',
-                top: '20%',
-                left: '23%',
-                right: 'auto',
-                bottom: 'auto'
+                overflow: 'hidden'
             }
     }
 
@@ -43,14 +39,6 @@ const MultiplayerGame = (props) => {
         let newScore = playerScore
         newScore[currentPlayer] += 1
         setPlayerScore(newScore)
-    }
-
-    const findWinners = () => {
-        for (let i = 0; i < props.playerCount; i++) {
-            if (playerScore[i] === highestScore) {
-                setWinners(prevWinners => [...prevWinners, i])
-            }
-        }
     }
 
     const tallyScores = () => {
@@ -144,13 +132,13 @@ const MultiplayerGame = (props) => {
     return ( 
         <div className="Game">
             <div className="topArea">
-                <h2>memory</h2>
+                <Link to="../"><h2>memory</h2></Link>
                 <div>
                     <button className="restart" onClick={() => window.location.reload()}>Restart</button>
                     <Link to="../"><button className="newGame">New Game</button></Link>
                 </div>
             </div>
-            <Modal isOpen={isOpen} style={customStyles}>
+            <Modal className="modal" isOpen={isOpen} style={customStyles}>
                 <MultiplayerWinScreen highestScore={highestScore} winners={winners} scores={finalScores}/>
             </Modal>
             {props.numbers ? 
