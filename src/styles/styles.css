@@ -329,6 +329,13 @@ p {
     height: 40px;
   }
 }
+@media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+  .topArea .restart, .topArea .newGame {
+    font-size: 18px;
+    height: 30px;
+    width: 18vw;
+  }
+}
 
 .gameContainer {
   display: flex;
@@ -344,6 +351,7 @@ p {
   .gameContainer {
     flex-direction: row;
     margin-left: 10%;
+    gap: 0;
   }
 }
 
@@ -388,6 +396,12 @@ p {
   row-gap: 4%;
   column-gap: 0;
 }
+@media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+  .FxFboard {
+    margin-top: 5%;
+    column-gap: 3%;
+  }
+}
 .FxFboard .unflippedPiece, .FxFboard .flippedPiece, .FxFboard .permaFlipped {
   width: 6.2vw;
   min-width: 75px;
@@ -425,8 +439,10 @@ p {
 }
 @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
   .FxFboard .unflippedPiece, .FxFboard .flippedPiece, .FxFboard .permaFlipped {
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 55px;
+    min-height: 55px;
+    width: 7vw;
+    height: 7vw;
   }
 }
 
@@ -571,7 +587,8 @@ p {
 }
 @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
   .SoloData .tracker {
-    height: 20%;
+    height: 15%;
+    width: 20vw;
   }
 }
 .SoloData .tracker p {
@@ -592,6 +609,11 @@ p {
     font-size: 16px;
   }
 }
+@media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+  .SoloData .tracker p {
+    font-size: 16px;
+  }
+}
 .SoloData .tracker h3 {
   color: #304859;
 }
@@ -606,6 +628,11 @@ p {
   }
 }
 @media screen and (max-width: 450px) {
+  .SoloData .tracker h3 {
+    font-size: 20px;
+  }
+}
+@media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
   .SoloData .tracker h3 {
     font-size: 20px;
   }

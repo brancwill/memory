@@ -100,6 +100,11 @@
             font-size: 14px;
             height: 40px;
         }
+        @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+            font-size: 18px;
+            height: 30px;
+            width: 18vw;
+        }
     }
 }
 .gameContainer {
@@ -114,6 +119,7 @@
     @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
         flex-direction: row;
         margin-left: 10%;
+        gap: 0;
     }
 }
 .board {
@@ -147,6 +153,10 @@
     grid-template-rows: 1fr 1fr 1fr 1fr;
     row-gap: 4%;
     column-gap: 0;
+    @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+        margin-top: 5%;
+        column-gap: 3%;
+    }
     .unflippedPiece, .flippedPiece, .permaFlipped {
         width: 6.2vw;
         min-width: 75px;
@@ -174,8 +184,10 @@
             min-height: 120px;
         }
         @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
-            min-width: 50px;
-            min-height: 50px;
+            min-width: 55px;
+            min-height: 55px;
+            width: 7vw;
+            height: 7vw;
         }
     }
 }
@@ -290,7 +302,8 @@
             max-height: 100px;
         }
         @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
-            height: 20%;   
+            height: 15%;
+            width: 20vw;
         }
         p {
             color: variables.$paleBlue1;
@@ -303,6 +316,9 @@
             @media screen and (max-width: 450px) {
                 font-size: 16px;
             }
+            @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
+                font-size: 16px;
+            }
         }
         h3 {
             color: variables.$paleBlue2;
@@ -313,6 +329,9 @@
                 font-size: 36px;
             }
             @media screen and (max-width: 450px) {
+                font-size: 20px;
+            }
+            @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
                 font-size: 20px;
             }
         }
