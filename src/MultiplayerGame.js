@@ -141,6 +141,7 @@ const MultiplayerGame = (props) => {
             <Modal className="modal" isOpen={isOpen} style={customStyles}>
                 <MultiplayerWinScreen highestScore={highestScore} winners={winners} scores={finalScores}/>
             </Modal>
+            <div className='gameContainer'>
             {props.numbers ? 
                 <div id="board" className={`board ${props.gSize}board`}>
                     {numArray.map((number, index) => {
@@ -155,6 +156,7 @@ const MultiplayerGame = (props) => {
                 </div>
             }
             <MultiplayerData currentPlayer={currentPlayer} playerCount={props.playerCount} playerScore={playerScore} />
+            </div>
         </div>
     );
 };

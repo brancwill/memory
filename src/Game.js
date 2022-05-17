@@ -120,6 +120,7 @@ const Game = (props) => {
             <Modal className="modal" isOpen={isOpen} style={customStyles}>
                 <WinScreen moves={moves} time={finalTime} />
             </Modal>
+            <div className="gameContainer">
             {props.numbers ? 
                 <div id="board" className={`board ${props.gSize}board`}>
                     {numArray.map((number, index) => {
@@ -134,6 +135,7 @@ const Game = (props) => {
                 </div>
             }
             <SoloData moves={moves} time={time} />
+            </div>
         </div>
     );
 };
