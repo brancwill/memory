@@ -323,10 +323,11 @@ p {
     height: 40px;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 490px) {
   .topArea .restart, .topArea .newGame {
     font-size: 14px;
     height: 40px;
+    width: 25vw;
   }
 }
 @media screen and (orientation: landscape) and (max-device-width: 900px) and (max-device-height: 420px) {
