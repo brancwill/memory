@@ -27,10 +27,8 @@ const Game = (props) => {
               backgroundColor: 'rgba(0, 0, 0, 0.6)'
             },
             content: {
-                width: '40vw',
                 height: 'auto',
                 borderRadius: '20px',
-                margin: 'auto',
                 overflow: 'hidden'
             }
     }
