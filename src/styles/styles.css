@@ -228,6 +228,9 @@ p {
 .Game a:visited {
   color: #152938;
 }
+.Game a h2 {
+  color: #152938;
+}
 .Game img {
   width: 60%;
   height: auto;
