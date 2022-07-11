@@ -1,7 +1,10 @@
+// The starting point of the game where users can select options with which they'd like to play
+
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 const Start = () => {
+    // State holds which options are chosen for different modes.
     const [theme, setTheme] = useState('numbers')
     const [players, setPlayers] = useState("1player")
     const [gSize, setGSize] = useState("4x4")

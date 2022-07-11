@@ -9,15 +9,27 @@ import WinScreen from './WinScreen';
 import IconPiece from './IconPiece';
 
 const Game = (props) => {
+    // Array containing numbers for board setup in number mode.
     const numArray = boardCreation(props.numPieces)
+
+    // Array containing icons for board setup in icon mode.
     const iconArray = iconBoardCreation(props.numPieces)
+
+    //State used to hold data of how many piece guess clicks have been used.
     const [clickCount, setClickCount] = useState(0)
+
+    //State used to hold data of the first piece picked for a potential match.
     const [previousPiece, setPreviousPiece] = useState(0)
+
     const [moves, setMoves] = useState(0)
     const [time, setTime] = useState('Starting...')
     const [finalTime, setFinalTime] = useState('')
     const [pieceCount, setPieceCount] = useState(0)
+
+    //State used with React Modal to determine whether or not the modal should be open.
     const [isOpen, setIsOpen] = useState(false)
+
+    //State used to reference specific pieces for cases of them being flipped, their value, etc.
     const pieceRef = useRef([])
 
     Modal.setAppElement('#root');
@@ -33,11 +45,13 @@ const Game = (props) => {
             }
     }
 
+    const piecesTilFinished = props.numPieces - 2
+
     let seconds = 0
     let minutes = 0
 
     const triggerWinScreen = () => {
-        if (pieceCount === props.numPieces - 2) {
+        if (pieceCount === piecesTilFinished) {
             setFinalTime(time)
             setIsOpen(true)
         }

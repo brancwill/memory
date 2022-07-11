@@ -5,10 +5,10 @@ import MultiplayerGame from "./MultiplayerGame"
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [gameStart, setGameStart] = useState(false)
 
   return (
     <div className="App">
+      {/* Different routes lead to differently configurated setups for the game. */}
       <Routes>
           <Route exact path="/" element={<Start />}/>
           <Route path="/numbers-1player-4x4" element={<Game numbers={true} gSize="FxF" numPieces={16} />}/>
